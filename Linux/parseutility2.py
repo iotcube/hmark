@@ -473,7 +473,6 @@ def parse_go_shallow(file):
     func = re.compile(r'(func)')
     number = re.compile(r'(\d+)')
     funcBody = re.compile(r'{([\S\s]*)}')
-
     string = " "
     firstLine = 0
     funcId = 1
@@ -537,7 +536,6 @@ def parse_go_deep(file):
     func = re.compile(r'(func)')
     number = re.compile(r'(\d+)')
     funcBody = re.compile(r'{([\S\s]*)}')
-
     string = " "
     firstLine = 0
     funcId = 1
