@@ -1,3 +1,20 @@
+"""
+This file is part of Hmark.
+
+    Hmark is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Hmark is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Hmark.  If not, see <https://www.gnu.org/licenses/>.
+"""
+
 #!  /usr/bin/env python
 """
 Parser utility.
@@ -230,8 +247,7 @@ delimiter = "\r\0?\r?\0\r"
 
 #Shallow JAVA code parser using Universal-Ctags
 def parse_java_shallow(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKS "' + file + '"'
+    Command = 'ctags -f - --fields=neKS "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
 
@@ -276,8 +292,7 @@ def parse_java_shallow(file):
 
 #Deep JAVA code parser using Universal-Ctags
 def parse_java_deep(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKS "' + file + '"'
+    Command = 'ctags -f - --fields=neKS "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
 
@@ -345,8 +360,7 @@ def parse_java_deep(file):
 
 #Shallow PYTHON code parser using Universal-Ctags
 def parse_python_shallow(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neK "' + file + '"'
+    Command = 'ctags -f - --fields=neK "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
 
@@ -387,8 +401,7 @@ def parse_python_shallow(file):
 
 #Deep PYTHON code parser using Universal-Ctags
 def parse_python_deep(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neK "' + file + '"'
+    Command = 'ctags -f - --fields=neK "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
     try:
@@ -454,8 +467,7 @@ def parse_python_deep(file):
 
 #Shallow GO code parser using Universal-Ctags
 def parse_go_shallow(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKSt "' + file + '"'
+    Command = 'ctags -f - --fields=neKSt "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
     functionInstanceList = []
@@ -515,8 +527,7 @@ def parse_go_shallow(file):
 
 #Deep GO code parser using Universal-Ctags
 def parse_go_deep(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKSt "' + file + '"'
+    Command = 'ctags -f - --fields=neKSt "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
     functionInstanceList = []
@@ -602,7 +613,7 @@ def parse_go_deep(file):
             filee = open("function.go", "w+", encoding="utf8", errors='ignore')
             filee.write(functionInstance.funcBody)
             filee.close()
-            Command1 = str(pathToCtags) + ' -f - --fields=neKS "function.go"'
+            Command1 = 'ctags -f - --fields=neKS "function.go"'
             shellOutput = subprocess.check_output(Command1, stderr=subprocess.STDOUT, shell=True).decode()
             varList = []
             varList = shellOutput.split('\n')
@@ -617,8 +628,7 @@ def parse_go_deep(file):
 
 #Shallow JavaScript code parser using Universal-Ctags
 def parse_js_shallow(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKS "' + file + '"'
+    Command = 'ctags -f - --fields=neKS "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
     functionInstanceList = []
@@ -677,8 +687,7 @@ def parse_js_shallow(file):
 
 #Shallow JavaScript code parser using Universal-Ctags
 def parse_js_deep(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKS "' + file + '"'
+    Command = 'ctags -f - --fields=neKS "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
     functionInstanceList = []
@@ -743,7 +752,7 @@ def parse_js_deep(file):
             filee = open("function.js", "w+", encoding="utf8", errors='ignore')
             filee.write(functionInstance.funcBody)
             filee.close()
-            Command1 = str(pathToCtags) + ' -f - --fields=neKS function.js'
+            Command1 = 'ctags -f - --fields=neKS function.js'
             shellOutput = subprocess.check_output(Command1, stderr=subprocess.STDOUT, shell=True).decode()
             varList = []
             varList = shellOutput.split('\n')
@@ -758,8 +767,7 @@ def parse_js_deep(file):
 
 
 def parse_c_shallow(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKSt "' + file + '"'
+    Command = 'ctags -f - --fields=neKSt "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
 
@@ -803,8 +811,7 @@ def parse_c_shallow(file):
     return functionInstanceList
 
 def parse_c_deep(file):
-    pathToCtags = resource_path("ctags")
-    Command = str(pathToCtags) + ' -f - --fields=neKSt "' + file + '"'
+    Command = 'ctags -f - --fields=neKSt "' + file + '"'
     global delimiter
     delimiter = "\r\0?\r?\0\r"
 

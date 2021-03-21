@@ -26,3 +26,5 @@ You can see the help message by passing an '-h' (or '--help')argument.
     -V, --version            print the Hmark version
 '''
 4. Upload the '.hidx' file on IoTcube's (https://iotcube.net/process/type/wf1) testing.
+
+# For MacOs you will have to install Universal Ctags on your device first: https://github.com/universal-ctags/homebrew-universal-ctags
