@@ -32,7 +32,7 @@ version = version.version
 cwd = os.getcwd()
 APP = ['hmark.py']
 APP_NAME = 'hmark_' + version + "_" + osName
-DATA_FILES = ['icon.gif', 'ctags']
+DATA_FILES = ['icon.gif', 'parseutility2.py', 'version.py']
 OPTIONS = {
     'argv_emulation': True,
     'iconfile': 'icon.gif',

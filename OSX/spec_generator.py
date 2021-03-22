@@ -42,6 +42,7 @@ version = version.version
 
 fp = open("hmark_" + version + '_' + osName + bits + ".spec", "w")
 cwd = os.getcwd()
+print(os.path.join(cwd, 'icon.gif'))
 if osName == "linux":
     fp.write("\
 # -*- mode: python -*-\n\n\
@@ -87,7 +88,7 @@ a = Analysis(['hmark.py'],\n\
              win_no_prefer_redirects=False,\n\
              win_private_assemblies=False,\n\
              cipher=block_cipher)\n\
-a.datas += [('icon.gif', r'" + os.path.join(cwd, 'icon.gif') + "', 'DATA'), ('ctags', r'" + os.path.join(cwd, 'ctags') + "', 'DATA')]\n\
+a.datas += [('icon.gif', r'" + os.path.join(cwd, 'icon.gif') + "', 'DATA')]\n\
 pyz = PYZ(a.pure, a.zipped_data,\n\
              cipher=block_cipher)\n\
 exe = EXE(pyz,\n\
@@ -95,11 +96,12 @@ exe = EXE(pyz,\n\
           a.binaries,\n\
           a.zipfiles,\n\
           a.datas,\n\
-          name='hmark_" + version + "_" + osName + "',\n\
+          name='hmark_" + version + "_" + osName + bits + "',\n\
           debug=False,\n\
           strip=False,\n\
           upx=True,\n\
-          console=True )\n\
+          console=True,\n\
+          icon='icon.ico')\n\
 """)
 
 elif osName == "win":
